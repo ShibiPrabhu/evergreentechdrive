@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Evergreen TechDrive - Industrial Transmission Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="images/favicon_io/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="images/favicon_io/site.webmanifest">
+<meta property="og:title" content="Evergreen TechDrive - Dependable Industrial Transmission Solutions" />
+<meta property="og:description" content="Gear motors, drive systems and transmission products from Chennai, supplied for the Nord brand." />
+<meta property="og:image" content="images/hero-nord-range.webp" />
+</head>
+<body>
+
+  <header>
+    <a href="#hero" class="logo-link" aria-label="Evergreen TechDrive - back to top">
+      <img class="logo-img" src="images/evergreen-techdrive-logo.png" alt="Evergreen TechDrive">
+    </a>
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <nav id="site-nav">
+      <a href="#about" onclick="loadInitialProducts()">About</a>
+      <a href="#products" onclick="loadInitialProducts()">Products</a>
+      <a href="#partners" onclick="loadInitialProducts()">Brand</a>
+      <a href="#contact" onclick="loadInitialProducts()">Contact</a>
+    </nav>
+  </header>
+
+<!-- Hero -->
+<section id="hero" class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="eyebrow">Transmission partner based in Chennai</p>
+      <h1>Industrial transmission solutions you can rely on</h1>
+      <p class="lead">Gear motors, gearboxes, drive systems and transmission products, backed by hands-on technical advice.</p>
+      <div class="hero-actions">
+        <button class="btn" onclick="scrollToQuoteForm()">Get a Quote</button>
+        <a class="btn secondary-btn" href="#products" onclick="loadInitialProducts()">View Products</a>
+      </div>
+      <div class="hero-stats" aria-label="Evergreen TechDrive highlights">
+        <div><strong>100+</strong><span>Trusted industrial supplies</span></div>
+        <div><strong>24h</strong><span>Focus on quick response</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card">
+        <img src="images/hero-nord-range.webp" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="content-section about">
+  <div class="about-head">
+    <span class="eyebrow">About us</span>
+    <h2>A trusted name in industrial transmission</h2>
+  </div>
+  <div class="about-body">
+    <p>Evergreen TechDrive is a dependable supplier of industrial transmission products, based in Chennai, Tamil Nadu. We concentrate on gear motors, gearboxes and drive systems, offering reliable solutions built for the demanding needs of manufacturing and industrial operations.</p>
+    <p>Our focus on quality, competitive pricing and expert technical support has made us a preferred partner for businesses across Tamil Nadu and beyond.</p>
+  </div>
+</section>
+
+<!-- Brand -->
+<section id="partners" class="brand-band">
+  <div class="brand-inner">
+    <div class="brand-logo">
+      <img src="images/nord_image_new.jpeg" alt="Nord Drivesystems logo" />
+    </div>
+    <div class="brand-copy">
+      <span class="eyebrow">Authorised supply</span>
+      <h2>Our brand: Nord</h2>
+      <p>Everything in our range comes from Nord Drivesystems, from geared motors and electric motors to frequency inverters.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Products -->
+<section id="products" class="content-section">
+  <div class="section-heading">
+    <span class="eyebrow">Product range</span>
+    <h2 id="our-products" onclick="loadInitialProducts()" style="cursor:pointer;">What we supply</h2>
+  </div>
+  <div class="products initial-products">
+    <div class="product-item" onclick="loadProductCategory('nord-gear-motors')">
+      <img src="images/edit_1.webp" alt="Nord Gear Motors" />
+      <h3>Nord Gear Motors</h3>
+      <p>A leading wholesale supplier of Nord Unicase Inline Helical Geared Motors, Nord Unicase Parallel Shaft Gear Motors, the Nord B5010 DuoDrive Geared Motor, the Nord Max Drive XC Right Angle Gear Motor, the Nord Max Drive XC Parallel Shaft Gear Motor and the Nord Unicase Worm Gear Motor, all from Chennai.</p>
+    </div>
+    <div class="product-item" onclick="loadProductCategory('electric-motor')">
+      <img src="images/nord-single-phase-motors.webp" alt="Electric Motor" />
+      <h3>Electric Motor</h3>
+      <p>Nord's new, energy-efficient universal motor widens the company's motor range for key world markets, including Europe, the USA, Canada and China.</p>
+    </div>
+    <div class="product-item" onclick="loadProductCategory('asynchronous-electric-motor')">
+      <img src="images/standard-motors-asynchronous-motors-1.webp" alt="Asynchronous Electric Motor" />
+      <h3>Asynchronous Electric Motor</h3>
+      <p>This energy-efficient universal motor from Nord drive systems expands the portfolio for major markets worldwide, such as Europe, the USA, Canada and China.</p>
+    </div>
+    <div class="product-item" onclick="loadProductCategory('synchronous-motors')">
+      <img src="images/nord-tefc-synchronous-motor.webp" alt="Synchronous Motors" />
+      <h3>Synchronous Motors</h3>
+      <p>Nord's latest generation of IE5+ synchronous motors is built in-house and designed for intralogistics as well as the food and beverage industry.</p>
+    </div>
+    <div class="product-item" onclick="loadProductCategory('explosion-proof-motor')">
+      <img src="images/nord-gas-explosion-protected-motor.webp" alt="Explosion Proof Motors" />
+      <h3>Explosion Proof Motors</h3>
+      <p>Nord's gas explosion-protected motors are manufactured at its own facilities and have been delivered to all major markets around the world since 2003.</p>
+    </div>
+    <div class="product-item" onclick="loadProductCategory('variable-frequency-drive-inverter')">
+      <img src="images/nord-pro-sk500e-vfd-inverter.webp" alt="Variable Frequency Drive & Inverter" />
+      <h3>Variable Frequency Drive &amp; Inverter</h3>
+      <p>The Nordac pro is a variable frequency drive and inverter for every kind of drive application. Even the basic SK 500P version delivers excellent versatility.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Why choose us -->
+<section class="why">
+  <div class="why-inner">
+    <div class="why-head">
+      <span class="eyebrow">Why choose us</span>
+      <h2>Built for industrial uptime</h2>
+    </div>
+    <ol class="why-list">
+      <li>
+        <span class="num">01</span>
+        <div>
+          <h3>Technical product knowledge</h3>
+          <p>Guidance on selecting gear motors, gearboxes and drive systems that suit your real operating conditions.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">02</span>
+        <div>
+          <h3>Durable product range</h3>
+          <p>Transmission products chosen for dependable industrial performance and a long service life.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">03</span>
+        <div>
+          <h3>Competitive supply</h3>
+          <p>Fair pricing, responsive coordination and practical help from first enquiry through to delivery.</p>
+        </div>
+      </li>
+      <li>
+        <span class="num">04</span>
+        <div>
+          <h3>Local response</h3>
+          <p>Our Chennai base means quicker communication across Tamil Nadu and neighbouring industrial regions.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="content-section testimonials">
+  <div class="section-heading">
+    <span class="eyebrow">Customer voice</span>
+    <h2>Customer testimonials</h2>
+  </div>
+  <div class="testimonial-grid">
+    <figure class="testimonial">
+      <blockquote>Evergreen TechDrive's high-quality gear motors have given our cement plants dependable performance. They are a partner we can trust on every project.</blockquote>
+      <figcaption>Dalmia Cement Operations Team</figcaption>
+    </figure>
+    <figure class="testimonial">
+      <blockquote>The reliability and efficiency of Evergreen TechDrive's products have steadily met our power generation needs. Their support keeps our engineering solutions running seamlessly.</blockquote>
+      <figcaption>BHEL Procurement Division</figcaption>
+    </figure>
+    <figure class="testimonial">
+      <blockquote>For our dairy automation systems, Evergreen TechDrive supplied sturdy solutions, backed by quick service and solid technical expertise.</blockquote>
+      <figcaption>Hatsun Agro Maintenance Team</figcaption>
+    </figure>
+    <figure class="testimonial">
+      <blockquote>Working with Evergreen TechDrive has been an outstanding experience. Their gear motors keep our production lines running smoothly, and we truly appreciate how quickly they respond.</blockquote>
+      <figcaption>TNPL Engineering Department</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Talk to Evergreen TechDrive</h2>
+      <dl>
+        <dt>Phone</dt>
+        <dd>+91-9884436211</dd>
+        <dt>Email</dt>
+        <dd>info@evergreentechdrive.in</dd>
+        <dt>Address</dt>
+        <dd>Evergreen TechDrive,<br>Mathura Apartments, 16/10,<br>Gopalakrishnan Street,<br>Secretariat Colony, Guindy,<br>Chennai - 600088, Tamil Nadu, India</dd>
+      </dl>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6112075931046!2d80.20680307454695!3d12.996700914328501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526783061ff21b%3A0x45f5c198a6914555!2sEvergreen%20Techdrives!5e0!3m2!1sen!2sin!4v1791732691024!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+    <div class="form-card">
+      <form id="contact-form" enctype="text/plain">
+        <input type="text" id="name-field" name="name" placeholder="Your Name" required>
+        <input type="tel" name="mobile" id="mobile" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="Mobile Number (optional)">
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- WhatsApp Floating Icon -->
+<a href="#" id="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+  <img src="images/WhatsApp.svg" alt="WhatsApp" />
+</a>
+
+<!-- Back-to-Top -->
+<a id="back-to-top" href="#hero" aria-label="Back to top" onclick="loadInitialProducts()">
+ <span>&uarr;</span>
+</a>
+
+<!-- Footer -->
+<footer>
+  <span class="footer-name">Evergreen <strong>TechDrive</strong></span>
+  <div class="footer-links">
+    <a href="https://www.indiamart.com/evergreen-techdrives/" target="_blank" rel="noopener">IndiaMart</a>
+    <a href="https://www.linkedin.com/in/evergreen-techdrives-0a4839250/" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://jsdl.in/DT-204MIBS2YCL" target="_blank" rel="noopener">JustDial</a>
+  </div>
+  <span class="footer-copy">&copy; 2026 Evergreen TechDrive. All rights reserved.</span>
+</footer>
+
+<!-- Script -->
+<script src="js/script.js"></script>
+</body>
+</html>
