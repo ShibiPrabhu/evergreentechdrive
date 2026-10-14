@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Evergreen TechDrive - Industrial Transmission Solutions</title>
+<meta name="description" content="Gear motors, drive systems and transmission products from Chennai, supplied for the Nord brand." />
+<meta name="color-scheme" content="light dark" />
+<script>
+  /* set the theme before first paint so there is no flash */
+  (function () {
+    document.documentElement.classList.add('js');
+    try {
+      var saved = localStorage.getItem('etd-theme');
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    } catch (e) {}
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,600;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="images/favicon_io/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon_io/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon_io/apple-touch-icon.png">
+<link rel="manifest" href="images/favicon_io/site.webmanifest">
+<meta property="og:title" content="Evergreen TechDrive - Dependable Industrial Transmission Solutions" />
+<meta property="og:description" content="Gear motors, drive systems and transmission products from Chennai, supplied for the Nord brand." />
+<meta property="og:image" content="images/hero-nord-range.webp" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Mobile / tablet top bar -->
+<header class="topbar">
+  <a href="#hero" class="logo-link" aria-label="Evergreen TechDrive - back to top">
+    <span class="logo-plate"><img class="logo-img" src="images/evergreen-techdrive-logo.png" alt="Evergreen TechDrive"></span>
+  </a>
+  <div class="topbar-tools">
+    <button class="theme-toggle theme-toggle--icon" type="button" aria-label="Switch to blueprint mode" aria-pressed="false">
+      <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7"/></g></svg>
+    </button>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="rail">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+</header>
+
+<div class="app">
+
+  <!-- Left rail: sheet index -->
+  <aside class="rail" id="rail" aria-label="Site navigation">
+    <div class="rail-inner">
+      <a href="#hero" class="logo-link rail-logo" aria-label="Evergreen TechDrive - back to top">
+        <span class="logo-plate"><img class="logo-img" src="images/evergreen-techdrive-logo.png" alt="Evergreen TechDrive"></span>
+      </a>
+
+      <p class="mono-label rail-label">Navigate</p>
+      <nav id="site-nav" aria-label="Main">
+        <span class="rail-progress" aria-hidden="true"><i></i></span>
+        <a href="#hero">Overview</a>
+        <a href="#about">About us</a>
+        <a href="#partners">Brand</a>
+        <a href="#products">Products</a>
+        <a href="#why">Why us</a>
+        <a href="#customers">Customers</a>
+        <a href="#contact">Contact us</a>
+      </nav>
+
+      <div class="rail-foot">
+        <button class="theme-toggle" type="button" aria-label="Switch to blueprint mode" aria-pressed="false">
+          <span class="tt-label">Blueprint mode</span>
+          <span class="tt-switch" aria-hidden="true"><i></i></span>
+        </button>
+        <a class="btn btn--block" href="#contact" data-quote>Get a quote <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="sheets" id="main">
+
+    <!-- 01 Hero -->
+    <section id="hero" class="sheet hero">
+      <div class="sheet-head"><span>Overview</span></div>
+
+      <div class="hero-top">
+        <div class="hero-top-copy">
+          <p class="mono-label hero-eyebrow">Authorized channel partner: NORD &middot; Chennai</p>
+          <h1>Industrial transmission you can <em>rely on.</em></h1>
+        </div>
+        <!-- NORD logo. Wide map version on laptops/desktops; tighter crop that tucks beside the headline on tablet and mobile. -->
+        <div class="hero-nord">
+          <picture>
+            <source media="(max-width: 1099px)" srcset="images/nord-drivesystems-logo-mark.webp" width="620" height="440">
+            <img src="images/nord-drivesystems-logo.webp" alt="NORD Drivesystems" width="1200" height="630" loading="eager">
+          </picture>
+        </div>
+      </div>
+
+      <div class="hero-row">
+        <p class="tagline">
+          Gear motors, gearboxes and drive systems.<br>
+          Backed by hands-on technical advice.<br>
+          Supplied across Chennai and Pondicherry.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#contact" data-quote>Talk to our team <span aria-hidden="true">&rarr;</span></a>
+          <a class="link-arrow" href="#products">View products <span aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
+
+      <figure class="hero-figure">
+        <div class="hero-plate">
+          <img src="images/hero-nord-range.webp" alt="Range of Nord gear motors and drive inverters" width="1280" height="768" fetchpriority="high">
+        </div>
+        <figcaption class="mono-label">Fig. 1 &mdash; The Nord range we supply</figcaption>
+      </figure>
+
+      <div class="databar" aria-label="Evergreen TechDrive highlights">
+        <div><strong>100<sup>+</sup></strong><span>Trusted industrial supplies</span></div>
+        <div><strong>24<sup>h</sup></strong><span>Focus on quick response</span></div>
+        <div><strong>06</strong><span>Product categories</span></div>
+        <div><strong>Nord</strong><span>Authorised brand partner</span></div>
+      </div>
+    </section>
+
+    <!-- Ticker -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Nord Gear Motors</span><i>&#10022;</i>
+        <span>Electric Motors</span><i>&#10022;</i>
+        <span>Asynchronous Motors</span><i>&#10022;</i>
+        <span>Synchronous Motors</span><i>&#10022;</i>
+        <span>Explosion Proof Motors</span><i>&#10022;</i>
+        <span>Variable Frequency Drives</span><i>&#10022;</i>
+        <span>Nord Gear Motors</span><i>&#10022;</i>
+        <span>Electric Motors</span><i>&#10022;</i>
+        <span>Asynchronous Motors</span><i>&#10022;</i>
+        <span>Synchronous Motors</span><i>&#10022;</i>
+        <span>Explosion Proof Motors</span><i>&#10022;</i>
+        <span>Variable Frequency Drives</span><i>&#10022;</i>
+      </div>
+    </div>
+
+    <!-- 02 About -->
+    <section id="about" class="sheet about">
+      <div class="sheet-head"><span>About us</span></div>
+      <div class="about-grid">
+        <div class="about-main">
+          <h2>A trusted name in <em>industrial transmission.</em></h2>
+          <p class="statement">Evergreen TechDrive is a dependable supplier of industrial transmission products, based in Chennai, Tamil Nadu.</p>
+          <div class="about-cols">
+            <p>We concentrate on gear motors, gearboxes and drive systems, offering reliable solutions built for the demanding needs of manufacturing and industrial operations.</p>
+            <p>Our focus on quality, competitive pricing and expert technical support has made us a preferred partner for businesses across Chennai and Pondicherry.</p>
+          </div>
+        </div>
+        <dl class="titleblock" aria-label="Company at a glance">
+          <div><dt>Based in</dt><dd>Chennai, Tamil Nadu</dd></div>
+          <div><dt>Supplies</dt><dd>Gear motors, gearboxes, drive systems</dd></div>
+          <div><dt>Brand</dt><dd>Nord Drivesystems</dd></div>
+          <div><dt>Serves</dt><dd>Chennai and Pondicherry</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 03 Brand -->
+    <section id="partners" class="sheet brand">
+      <div class="sheet-head"><span>Brand</span></div>
+      <div class="brand-grid">
+        <div class="brand-logo">
+          <img src="images/nord_image_new.jpeg" alt="Nord Drivesystems logo" />
+        </div>
+        <div class="brand-copy">
+          <p class="mono-label">Authorised supply</p>
+          <h2>Our brand: <em>Nord.</em></h2>
+          <p>Everything in our range comes from Nord Drivesystems, from geared motors and electric motors to frequency inverters.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Products -->
+    <section id="products" class="sheet products">
+      <div class="sheet-head"><span>Product range</span></div>
+      <h2>What we <em>supply.</em></h2>
+
+      <div class="explorer" id="explorer">
+        <div class="tree" id="tree" aria-label="Product catalogue"></div>
+
+        <article class="datasheet" id="datasheet" aria-live="polite">
+          <!-- filled by script.js from js/data.js -->
+          <noscript><p>Please enable JavaScript to browse the product datasheets, or call +91-9884436211.</p></noscript>
+        </article>
+      </div>
+    </section>
+
+    <!-- 05 Why us -->
+    <section id="why" class="sheet why">
+      <div class="sheet-head"><span>Why choose us</span></div>
+      <h2>Built for <em>industrial uptime.</em></h2>
+      <ol class="dims">
+        <li>
+          <span class="tag" aria-hidden="true">A</span>
+          <h3>Technical product knowledge</h3>
+          <p>Guidance on selecting gear motors, gearboxes and drive systems that suit your real operating conditions.</p>
+        </li>
+        <li>
+          <span class="tag" aria-hidden="true">B</span>
+          <h3>Durable product range</h3>
+          <p>Transmission products chosen for dependable industrial performance and a long service life.</p>
+        </li>
+        <li>
+          <span class="tag" aria-hidden="true">C</span>
+          <h3>Competitive supply</h3>
+          <p>Fair pricing, responsive coordination and practical help from first enquiry through to delivery.</p>
+        </li>
+        <li>
+          <span class="tag" aria-hidden="true">D</span>
+          <h3>Local response</h3>
+          <p>Our Chennai base means quicker communication across Chennai and Pondicherry.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- 06 Customers -->
+    <section id="customers" class="sheet customers">
+      <div class="sheet-head"><span>Customer voice</span></div>
+      <h2>What our customers <em>say.</em></h2>
+
+      <!-- Testimonials rotate by themselves (about 5 seconds each, then fade to the next and loop). Nothing here is clickable. -->
+      <div class="quotes" id="quotes">
+        <div class="quote-stage">
+          <figure class="quote is-active">
+            <blockquote>Evergreen TechDrive's high-quality gear motors have given our cement plants dependable performance. They are a partner we can trust on every project.</blockquote>
+            <figcaption>Dalmia Cement Operations Team</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>The reliability and efficiency of Evergreen TechDrive's products have steadily met our power generation needs. Their support keeps our engineering solutions running seamlessly.</blockquote>
+            <figcaption>BHEL Procurement Division</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>For our dairy automation systems, Evergreen TechDrive supplied sturdy solutions, backed by quick service and solid technical expertise.</blockquote>
+            <figcaption>Hatsun Agro Maintenance Team</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>Working with Evergreen TechDrive has been an outstanding experience. Their gear motors keep our production lines running smoothly, and we truly appreciate how quickly they respond.</blockquote>
+            <figcaption>TNPL Engineering Department</figcaption>
+          </figure>
+        </div>
+
+        <div class="quote-bar" aria-hidden="true">
+          <span class="mono-label" id="quote-count">1 / 4</span>
+          <span class="quote-progress"><i></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Contact -->
+    <section id="contact" class="sheet contact">
+      <div class="sheet-head"><span>Contact us</span></div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Let's power progress <em>together.</em></h2>
+          <dl class="cells">
+            <div><dt>Phone</dt><dd><a href="tel:+919884436211">+91-9884436211</a></dd></div>
+            <div><dt>Email</dt><dd><a href="mailto:info@evergreentechdrive.in">info@evergreentechdrive.in</a></dd></div>
+            <div class="wide"><dt>Address</dt><dd>Evergreen TechDrive, Mathura Apartments, 16/10,<br>Gopalakrishnan Street, Secretariat Colony, Guindy,<br>Chennai - 600088, Tamil Nadu, India</dd></div>
+          </dl>
+          <div class="map-wrap">
+            <iframe title="Evergreen TechDrive location map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6112075931046!2d80.20680307454695!3d12.996700914328501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526783061ff21b%3A0x45f5c198a6914555!2sEvergreen%20Techdrives!5e0!3m2!1sen!2sin!4v1791732691024!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <p class="mono-label">Customer enquiry</p>
+          <h3>Tell us what you need.</h3>
+          <form id="contact-form" enctype="text/plain">
+            <div class="field">
+              <label for="name-field">Your name <span class="req">*</span></label>
+              <input type="text" id="name-field" name="name" placeholder="Full name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="mobile">Mobile number <span class="opt">(optional)</span></label>
+              <input type="tel" name="mobile" id="mobile" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel-national">
+            </div>
+            <div class="field">
+              <label for="email-field">Your email <span class="req">*</span></label>
+              <input type="email" id="email-field" name="email" placeholder="you@company.com" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="message-field">Your message <span class="req">*</span></label>
+              <textarea id="message-field" name="message" placeholder="Product, quantity, application..." rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--block btn--go">Submit enquiry <span aria-hidden="true">&rarr;</span></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer / title block -->
+    <footer class="titleblock-foot">
+      <div class="tb-cell tb-logo">
+        <span class="logo-plate"><img class="logo-img" src="images/evergreen-techdrive-logo.png" alt="Evergreen TechDrive"></span>
+      </div>
+      <div class="tb-cell tb-copy">&copy; 2026 Evergreen TechDrive. All rights reserved.</div>
+      <div class="tb-cell tb-links">
+        <a href="https://www.indiamart.com/evergreen-techdrives/" target="_blank" rel="noopener">IndiaMart <span aria-hidden="true">&nearr;</span></a>
+        <a href="https://www.linkedin.com/in/evergreen-techdrives-0a4839250/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&nearr;</span></a>
+        <a href="https://jsdl.in/DT-204MIBS2YCL" target="_blank" rel="noopener">JustDial <span aria-hidden="true">&nearr;</span></a>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<!-- WhatsApp Floating Icon -->
+<a href="#" id="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+  <img src="images/WhatsApp.svg" alt="" />
+</a>
+
+<!-- Back-to-Top (appears after scrolling) -->
+<a id="back-to-top" href="#hero" aria-label="Back to top"><span aria-hidden="true">&uarr;</span></a>
+
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
