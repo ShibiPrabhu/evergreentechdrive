@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,7 +12,7 @@
     document.documentElement.classList.add('js');
     try {
       var saved = localStorage.getItem('etd-theme');
-      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var dark = saved ? saved === 'dark' : true;   /* dark mode is the default */
       document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
     } catch (e) {}
   })();
@@ -40,7 +40,7 @@
     <span class="logo-plate"><img class="logo-img" src="images/evergreen-techdrive-logo.png" alt="Evergreen TechDrive"></span>
   </a>
   <div class="topbar-tools">
-    <button class="theme-toggle theme-toggle--icon" type="button" aria-label="Switch to blueprint mode" aria-pressed="false">
+    <button class="theme-toggle theme-toggle--icon" type="button" aria-label="Switch to dark mode" aria-pressed="false">
       <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.3 5.3l1.7 1.7M17 17l1.7 1.7M18.7 5.3 17 7M7 17l-1.7 1.7"/></g></svg>
     </button>
@@ -72,8 +72,8 @@
       </nav>
 
       <div class="rail-foot">
-        <button class="theme-toggle" type="button" aria-label="Switch to blueprint mode" aria-pressed="false">
-          <span class="tt-label">Blueprint mode</span>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <span class="tt-label">Dark mode</span>
           <span class="tt-switch" aria-hidden="true"><i></i></span>
         </button>
         <a class="btn btn--block" href="#contact" data-quote>Get a quote <span aria-hidden="true">&rarr;</span></a>
@@ -123,7 +123,7 @@
       <div class="databar" aria-label="Evergreen TechDrive highlights">
         <div><strong>100<sup>+</sup></strong><span>Trusted industrial supplies</span></div>
         <div><strong>24<sup>h</sup></strong><span>Focus on quick response</span></div>
-        <div><strong>06</strong><span>Product categories</span></div>
+        <div><strong>03</strong><span>Product categories</span></div>
         <div><strong>Nord</strong><span>Authorised brand partner</span></div>
       </div>
     </section>
@@ -131,18 +131,18 @@
     <!-- Ticker -->
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track">
-        <span>Nord Gear Motors</span><i>&#10022;</i>
-        <span>Electric Motors</span><i>&#10022;</i>
+        <span>Geared Motors</span><i>&#10022;</i>
+        <span>Helical Geared Motors</span><i>&#10022;</i>
         <span>Asynchronous Motors</span><i>&#10022;</i>
         <span>Synchronous Motors</span><i>&#10022;</i>
-        <span>Explosion Proof Motors</span><i>&#10022;</i>
-        <span>Variable Frequency Drives</span><i>&#10022;</i>
-        <span>Nord Gear Motors</span><i>&#10022;</i>
-        <span>Electric Motors</span><i>&#10022;</i>
+        <span>Explosion-protected Motors</span><i>&#10022;</i>
+        <span>Industrial Gear Units</span><i>&#10022;</i>
+        <span>Geared Motors</span><i>&#10022;</i>
+        <span>Helical Geared Motors</span><i>&#10022;</i>
         <span>Asynchronous Motors</span><i>&#10022;</i>
         <span>Synchronous Motors</span><i>&#10022;</i>
-        <span>Explosion Proof Motors</span><i>&#10022;</i>
-        <span>Variable Frequency Drives</span><i>&#10022;</i>
+        <span>Explosion-protected Motors</span><i>&#10022;</i>
+        <span>Industrial Gear Units</span><i>&#10022;</i>
       </div>
     </div>
 
@@ -187,12 +187,12 @@
       <div class="sheet-head"><span>Product range</span></div>
       <h2>What we <em>supply.</em></h2>
 
+      <!-- Menu: Category > Sub-category > Product. Datasheet on the right. Built by js/script.js from js/data.js -->
       <div class="explorer" id="explorer">
         <div class="tree" id="tree" aria-label="Product catalogue"></div>
 
         <article class="datasheet" id="datasheet" aria-live="polite">
-          <!-- filled by script.js from js/data.js -->
-          <noscript><p>Please enable JavaScript to browse the product datasheets, or call +91-9884436211.</p></noscript>
+          <noscript><p>Please enable JavaScript to browse the product range, or call <a href="tel:+919092097887">+91 90920 97887</a>.</p></noscript>
         </article>
       </div>
     </section>
@@ -265,7 +265,7 @@
         <div class="contact-info">
           <h2>Let's power progress <em>together.</em></h2>
           <dl class="cells">
-            <div><dt>Phone</dt><dd><a href="tel:+919884436211">+91-9884436211</a></dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:+919092097887">+91 90920 97887</a></dd></div>
             <div><dt>Email</dt><dd><a href="mailto:info@evergreentechdrive.in">info@evergreentechdrive.in</a></dd></div>
             <div class="wide"><dt>Address</dt><dd>Evergreen TechDrive, Mathura Apartments, 16/10,<br>Gopalakrishnan Street, Secretariat Colony, Guindy,<br>Chennai - 600088, Tamil Nadu, India</dd></div>
           </dl>

@@ -1,7 +1,7 @@
 /* Evergreen TechDrive - engineering drawing theme
    Light mode = drawing paper, dark mode = blueprint.
-   Layout: fixed sheet-index rail on the left, one "sheet" per section,
-   a catalogue tree + datasheet for products, title-block contact and footer. */
+   Layout: top navigation bar on desktop (slide-in menu on tablet and phone), one "sheet" per section,
+   a menu + datasheet catalogue, title-block contact and footer. */
 
 :root {
   --paper: #EDF1F4;
@@ -635,13 +635,13 @@ html[data-theme="dark"] .hero-nord img {
 .brand-copy h2 { margin: 14px 0 12px; font-size: clamp(2.2rem, 4vw + 0.6rem, 3.8rem); }
 .brand-copy p:last-child { margin: 0; max-width: 34rem; color: var(--ink-soft); }
 
-/* ---------- Products: catalogue tree + datasheet ---------- */
+/* ---------- Products: menu (category > sub-category > product) + datasheet ---------- */
 
 .products h2 { margin-bottom: clamp(28px, 4vw, 48px); }
 
 .explorer {
   display: grid;
-  grid-template-columns: minmax(250px, 340px) minmax(0, 1fr);
+  grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
   border: 1.5px solid var(--rule-strong);
   background: var(--panel);
 }
@@ -680,13 +680,30 @@ html[data-theme="dark"] .hero-nord img {
 .cat.is-open > .cat-btn .n,
 .cat.is-open > .cat-btn .count { color: var(--paper); opacity: 0.75; }
 
-.models { margin: 0; padding: 6px 0; list-style: none; max-height: 440px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--rule-strong) transparent; }
+.models { padding: 4px 0 8px; max-height: 520px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--rule-strong) transparent; }
 .models[hidden] { display: none; }
+
+.sub + .sub { margin-top: 6px; }
+.sub-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  padding: 12px 18px 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.sub ul { margin: 0; padding: 0; list-style: none; }
+
 .model-btn {
   position: relative;
   display: block;
   width: 100%;
-  padding: 9px 18px 9px 46px;
+  padding: 8px 18px 8px 46px;
   border: 0;
   background: transparent;
   color: var(--ink-soft);
@@ -724,16 +741,18 @@ html[data-theme="dark"] .hero-nord img {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: clamp(220px, 28vw, 320px);
-  padding: 16px;
+  aspect-ratio: 5 / 3;
+  max-height: 400px;
+  margin-inline: auto;
   background: var(--plate);
   border: 1.5px solid var(--rule-strong);
 }
-.ds-figure img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+.ds-figure img { display: block; width: 100%; height: 100%; object-fit: contain; }
 
 .ds-model { margin: clamp(22px, 3vw, 32px) 0 6px; font-size: clamp(2rem, 3.6vw, 3rem); }
+.ds-h { margin: clamp(20px, 2.6vw, 28px) 0 8px; }
 
-.specs { margin: 18px 0 0; }
+.specs { margin: 0; border-top: 1.5px solid var(--rule-strong); }
 .spec {
   display: flex;
   align-items: baseline;
@@ -756,6 +775,17 @@ html[data-theme="dark"] .hero-nord img {
 .spec dt::after { content: ""; flex: 1; border-bottom: 1px dotted var(--rule-strong); transform: translateY(-3px); }
 .spec dd { margin: 0; font-weight: 600; text-align: right; }
 
+.feats { margin: 0; padding: 0; list-style: none; border-top: 1.5px solid var(--rule-strong); }
+.feats li { position: relative; padding: 10px 0 10px 24px; border-bottom: 1px solid var(--rule); }
+.feats li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 1.15em;
+  width: 9px; height: 9px;
+  background: var(--green);
+  border: 1.5px solid var(--ink);
+}
+
 .ds-actions {
   display: flex;
   flex-wrap: wrap;
@@ -765,13 +795,6 @@ html[data-theme="dark"] .hero-nord img {
 }
 .ds-actions .btn { flex: 1 1 auto; max-width: 340px; }
 .ds-step { display: flex; gap: 8px; margin-left: auto; }
-
-.ds-note {
-  margin-top: 28px;
-  padding-top: 20px;
-  border-top: 1px dashed var(--rule-strong);
-}
-.ds-note p:last-child { margin: 8px 0 0; color: var(--ink-soft); font-size: 0.94rem; }
 
 /* ---------- Why us ---------- */
 
@@ -944,7 +967,7 @@ html[data-theme="dark"] .hero-nord img {
   border: 1.5px solid var(--rule-strong);
   overflow: hidden;
 }
-.map-wrap iframe { display: block; width: 100%; height: 100%; border: 0; filter: grayscale(0.4) invert(0.9) hue-rotate(180deg); }
+.map-wrap iframe { display: block; width: 100%; height: 100%; border: 0; }
 
 .form-card h3 { margin: 12px 0 28px; font-size: clamp(2rem, 3.4vw, 2.8rem); }
 form { display: grid; gap: 22px; margin: 0; }
@@ -1074,31 +1097,76 @@ html:not([data-theme="dark"]) #back-to-top:hover { color: #fff; }
   * { transition-duration: 0.01ms !important; }
 }
 
-/* ---------- Wide screens: fixed left rail ---------- */
+/* ---------- Wide screens: top navigation bar ---------- */
 
 @media (min-width: 1100px) {
-  html { scroll-padding-top: 0; }
+  html { scroll-padding-top: 96px; }
 
   .topbar { display: none; }
   .menu-toggle { display: none; }
 
-  .app {
-    display: grid;
-    grid-template-columns: var(--rail-w) minmax(0, 1fr);
-  }
+  .app { display: block; }
 
+  /* the same element that is the slide-in menu on tablets and phones becomes the site header */
   .rail {
     position: sticky;
-    inset: 0 auto auto 0;
-    height: 100vh;
-    height: 100dvh;
-    z-index: 10;
+    inset: 0 0 auto 0;
+    height: auto;
+    z-index: 2100;
     transform: none;
     visibility: visible;
-    border-right: 1.5px solid var(--rule-strong);
+    overflow: visible;
+    background: var(--panel);
+    border-bottom: 1px solid var(--rule-strong);
     transition: none;
   }
-  .rail-inner { padding: 32px 28px 28px; }
+  .rail-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(16px, 2.4vw, 40px);
+    height: 84px;                 /* fixed, so light and dark mode give the same bar height */
+    min-height: 0;
+    padding: 0 var(--gutter);
+  }
+  .rail-logo { display: inline-flex; margin: 0; flex: 0 0 auto; }
+  .rail-logo .logo-img { height: 56px; }
+  html[data-theme="dark"] .rail-logo .logo-plate { padding: 0 10px; }   /* dark mode adds a white plate; keep it from making the bar taller */
+  .rail-label,
+  .rail-progress { display: none; }
+
+  #site-nav { flex-direction: row; align-items: center; gap: 2px; margin-left: auto; }
+  #site-nav a[href="#hero"] { display: none; }   /* the logo already goes home */
+  #site-nav a {
+    padding: 10px clamp(8px, 1vw, 16px);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+  #site-nav a:hover { color: var(--blue); padding-left: clamp(8px, 1vw, 16px); }
+  #site-nav a.is-active { color: var(--blue); }
+  #site-nav a.is-active::before {
+    left: clamp(8px, 1vw, 16px); right: clamp(8px, 1vw, 16px);
+    top: auto; bottom: 2px;
+    width: auto; height: 3px;
+    background: var(--green);
+    border: 0;
+    border-radius: 0;
+    transform: none;
+  }
+
+  .rail-foot { display: flex; align-items: center; gap: 12px; margin: 0; padding: 0; flex: 0 0 auto; }
+  .rail-foot .theme-toggle { min-height: 42px; padding: 0 12px; gap: 10px; white-space: nowrap; }
+  .rail-foot .btn { width: auto; min-height: 42px; padding: 0 20px; white-space: nowrap; }
+}
+
+@media (min-width: 1100px) and (max-width: 1279px) {
+  .rail-foot .tt-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }   /* switch only; label stays for screen readers */
+  .rail-foot .btn { padding: 0 16px; }
 }
 
 /* ---------- Tablet and below ---------- */
@@ -1119,7 +1187,7 @@ html:not([data-theme="dark"]) #back-to-top:hover { color: #fff; }
 @media (max-width: 899px) {
   .explorer { grid-template-columns: 1fr; }
   .tree { border-right: 0; border-bottom: 1.5px solid var(--rule-strong); }
-  .models { max-height: 300px; }
+  .models { max-height: 340px; }
   .hero-row { grid-template-columns: 1fr; }
   .databar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .databar > div:nth-child(3) { border-left: 0; }

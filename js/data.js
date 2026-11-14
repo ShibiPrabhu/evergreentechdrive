@@ -1,778 +1,537 @@
-// Product catalogue. Add or edit models here; the Products section builds itself from this list.
+// Product catalogue: Category > Sub-category > Product.
+// Add or edit products here; the Products section on the page builds itself from this list.
+// Each product needs: slug (unique, used in the page link), name, img, specs [[label, value]], features [text].
 window.ETD_CATALOG = [
   {
-    "key": "nord-gear-motors",
-    "title": "Nord Gear Motors",
-    "blurb": "A leading wholesale supplier of Nord Unicase Inline Helical Geared Motors, Nord Unicase Parallel Shaft Gear Motors, the Nord B5010 DuoDrive Geared Motor, the Nord Max Drive XC Right Angle Gear Motor, the Nord Max Drive XC Parallel Shaft Gear Motor and the Nord Unicase Worm Gear Motor, all from Chennai.",
-    "cover": "images/edit_1.webp",
-    "items": [
+    "key": "geared-motors",
+    "title": "Geared Motors",
+    "subcategories": [
       {
-        "name": "Nord Unicase Inline Helical Geared Motors",
-        "img": "images/nord-inline-helical-geared-motors.webp",
-        "alt": "Nord Unicase Inline Helical Geared Motors",
-        "specs": [
-          [
-            "Power",
-            "7.5kW"
-          ],
-          [
-            "Rate Speed",
-            "90RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "415V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "Unicase Inline"
-          ]
+        "key": "helical-geared-motors",
+        "title": "Helical Geared Motors",
+        "products": [
+          {
+            "slug": "standard-helical-inline-gear-motor",
+            "name": "STANDARD Helical Inline Gear Motor",
+            "img": "images/products/standard-helical-inline-gear-motor.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 7.5 kW"
+              ],
+              [
+                "Torque",
+                "50 – 700 Nm"
+              ]
+            ],
+            "features": [
+              "Reliable and durable with robust cast iron housing",
+              "Versatile thanks to a wide range of sizes and gear ratios",
+              "Simple and flexible installation thanks to multiple mounting options"
+            ]
+          },
+          {
+            "slug": "nordbloc-1-helical-inline-gear-motor",
+            "name": "NORDBLOC.1 Helical Inline Gear Motor",
+            "img": "images/products/nordbloc-1-helical-inline-gear-motor.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 37 kW"
+              ],
+              [
+                "Torque",
+                "30 – 3,300 Nm"
+              ]
+            ],
+            "features": [
+              "Wash-down capable, available with NXD tupH® for food-safe surface protection",
+              "Low weight thanks to aluminum housing",
+              "Low noise levels thanks to quiet running"
+            ]
+          },
+          {
+            "slug": "unicase-helical-inline-gear-motor",
+            "name": "UNICASE Helical Inline Gear Motor",
+            "img": "images/products/unicase-helical-inline-gear-motor.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 160 kW"
+              ],
+              [
+                "Torque",
+                "10 – 23,160 Nm"
+              ]
+            ],
+            "features": [
+              "Low operating costs thanks to high efficiency",
+              "Low space requirements thanks to compact design",
+              "Low noise levels thanks to smooth running"
+            ]
+          }
         ]
       },
       {
-        "name": "Nord Unicase Parallel Shaft Gear Motors",
-        "img": "images/nord-unicase-parallel-shaft-gear-motors.webp",
-        "alt": "Nord Unicase Parallel Shaft Gear Motors",
-        "specs": [
-          [
-            "Power",
-            "2.2kW"
-          ],
-          [
-            "Rate Speed",
-            "90RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "415V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "Unicase Parallel"
-          ]
+        "key": "parallel-shaft-geared-motors",
+        "title": "Parallel Shaft Geared Motors",
+        "products": [
+          {
+            "slug": "unicase-parallel-gear-motor",
+            "name": "UNICASE Parallel Gear Motor",
+            "img": "images/products/unicase-parallel-gear-motor.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 200 kW"
+              ],
+              [
+                "Torque",
+                "110 – 100,000 Nm"
+              ]
+            ],
+            "features": [
+              "Slim design for space-saving installation",
+              "Wash-down capable, can be equipped with NXD tupH® for food-safe surface protection",
+              "Low noise levels thanks to quiet running"
+            ]
+          }
         ]
       },
       {
-        "name": "Nord B5010 DuoDrive Geared Motor",
-        "img": "images/nord-b5010-duodrive-geared-motor.webp",
-        "alt": "Nord B5010 DuoDrive Geared Motor",
-        "specs": [
-          [
-            "Power",
-            "3kW"
-          ],
-          [
-            "Rate Speed",
-            "1440RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "440V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "B5010"
-          ]
+        "key": "bevel-geared-motors",
+        "title": "Bevel Geared Motors",
+        "products": [
+          {
+            "slug": "unicase-helical-bevel-gear-motor",
+            "name": "UNICASE Helical Bevel Gear Motor",
+            "img": "images/products/unicase-helical-bevel-gear-motor.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 200 kW"
+              ],
+              [
+                "Torque",
+                "180 – 50,000 Nm"
+              ]
+            ],
+            "features": [
+              "High power density",
+              "Low maintenance with long service life",
+              "High radial and axial loads"
+            ]
+          },
+          {
+            "slug": "nordbloc-1-helical-bevel-gear-motor",
+            "name": "NORDBLOC.1 Helical Bevel Gear Motor",
+            "img": "images/products/nordbloc-1-helical-bevel-gear-motor.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 9.2 kW"
+              ],
+              [
+                "Torque",
+                "50 – 660 Nm"
+              ]
+            ],
+            "features": [
+              "High radial and axial load capacity ensures safe operation",
+              "Wash-down capable, available with NXD tupH® for food-safe surface protection",
+              "Lightweight thanks to aluminum housing"
+            ]
+          }
         ]
       },
       {
-        "name": "Nord Max Drive XC Right Angle Gear Motor",
-        "img": "images/mr4.webp",
-        "alt": "Nord Max Drive XC Right Angle Gear Motor",
-        "specs": [
-          [
-            "Power",
-            "140kW"
-          ],
-          [
-            "Rate Speed",
-            "1800RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Used in heavy-duty industrial applications"
-          ],
-          [
-            "Phase",
-            "3 Phase"
-          ],
-          [
-            "Voltage",
-            "415 V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "Max Drive XC"
-          ]
-        ]
-      },
-      {
-        "name": "Nord Max Drive XC Parallel Shaft Gear Motor",
-        "img": "images/maxxdrive-xc-parallel-gear-units.webp",
-        "alt": "Nord Max Drive XC Parallel Shaft Gear Motor",
-        "specs": [
-          [
-            "Power",
-            "55kW"
-          ],
-          [
-            "Rate Speed",
-            "3000RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "415 V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "Max Drive XC"
-          ]
-        ]
-      },
-      {
-        "name": "Nord Unicase Worm Gear Motor",
-        "img": "images/hw2.webp",
-        "alt": "Nord Unicase Worm Gear Motor",
-        "specs": [
-          [
-            "Power",
-            "15kW"
-          ],
-          [
-            "Rate Speed",
-            "90RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "415 V"
-          ],
-          [
-            "Model",
-            "Unicase"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ]
-        ]
-      },
-      {
-        "name": "Nord Bloc 1 Bevel Geared Motor",
-        "img": "images/nordbloc-1-bevel-geared-motor.webp",
-        "alt": "Nord Bloc 1 Bevel Geared Motor",
-        "specs": [
-          [
-            "Power",
-            "9.2kW"
-          ],
-          [
-            "Rate Speed",
-            "90RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "415 V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "Nord Bevel"
-          ]
-        ]
-      },
-      {
-        "name": "Nord Universal SMI Worm Gear Motor",
-        "img": "images/nord-universal-worm-gear-motors.webp",
-        "alt": "Nord Universal SMI Worm Gear Motor",
-        "specs": [
-          [
-            "Power",
-            "4kW"
-          ],
-          [
-            "Rate Speed",
-            "90RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "415 V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "Universal SMI"
-          ]
-        ]
-      },
-      {
-        "name": "Nord V Belt Variator Gear Motor",
-        "img": "images/v1.webp",
-        "alt": "Nord V Belt Variator Gear Motor",
-        "specs": [
-          [
-            "Power",
-            "90kW"
-          ],
-          [
-            "Rate Speed",
-            "200RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "415 V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "V Belt"
-          ]
-        ]
-      },
-      {
-        "name": "Nord Unicase Bevel Helical Bevel Gear Motor",
-        "img": "images/nord-unicase-bevel-helical-bevel-gear-motor.webp",
-        "alt": "Nord Unicase Bevel Helical Bevel Gear Motor",
-        "specs": [
-          [
-            "Power",
-            "220Kw"
-          ],
-          [
-            "Rate Speed",
-            "90 RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "415V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "Unicase Bevel"
-          ]
-        ]
-      },
-      {
-        "name": "Nord Bloc 1 Helical Inline Gear Motor",
-        "img": "images/nord-bloc-1-helical-inline-gear-motor.webp",
-        "alt": "Nord Bloc 1 Helical Inline Gear Motor",
-        "specs": [
-          [
-            "Power",
-            "37Kw"
-          ],
-          [
-            "Rate Speed",
-            "1440 RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "440V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "Bloc 1"
-          ]
-        ]
-      },
-      {
-        "name": "Nord Standard Inline Helical Geared Motor",
-        "img": "images/242163.webp",
-        "alt": "Nord Standard Inline Helical Geared Motor",
-        "specs": [
-          [
-            "Power",
-            "7.5Kw"
-          ],
-          [
-            "Rate Speed",
-            "90 RPM"
-          ],
-          [
-            "Phase",
-            "Three Phase"
-          ],
-          [
-            "Usage/Application",
-            "Conveyors"
-          ],
-          [
-            "Voltage",
-            "415V"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "Standard Inline"
-          ]
+        "key": "worm-gear-motors",
+        "title": "Worm Gear Motors",
+        "products": [
+          {
+            "slug": "universal-smi-worm-gear-unit",
+            "name": "UNIVERSAL SMI Worm Gear Unit",
+            "img": "images/products/universal-smi-worm-gear-unit.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 4.0 kW"
+              ],
+              [
+                "Torque",
+                "21 – 427 Nm"
+              ]
+            ],
+            "features": [
+              "Wash-down capable, available with NXD tupH® for food-safe surface protection",
+              "Low noise levels thanks to quiet running",
+              "Low space requirement thanks to compact design"
+            ]
+          },
+          {
+            "slug": "universal-si-worm-gear-unit",
+            "name": "UNIVERSAL SI Worm Gear Unit",
+            "img": "images/products/universal-si-worm-gear-unit.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 4.0 kW"
+              ],
+              [
+                "Torque",
+                "21 – 427 Nm"
+              ]
+            ],
+            "features": [
+              "High overload capacity for safe operation",
+              "Flexible use due to modular design",
+              "Low space requirement due to compact design"
+            ]
+          },
+          {
+            "slug": "unicase-helical-worm-gear-unit",
+            "name": "UNICASE Helical Worm Gear Unit",
+            "img": "images/products/unicase-helical-worm-gear-unit.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 15 kW"
+              ],
+              [
+                "Torque",
+                "93 – 3,090 Nm"
+              ]
+            ],
+            "features": [
+              "High bearing capacity",
+              "Quiet running",
+              "Long service life"
+            ]
+          }
         ]
       }
-    ]
+    ],
+    "blurb": "Helical, parallel shaft, bevel and worm gear motors, from 0.12 kW up to 200 kW."
   },
   {
-    "key": "electric-motor",
-    "title": "Electric Motor",
-    "blurb": "Nord's new, energy-efficient universal motor widens the company's motor range for key world markets, including Europe, the USA, Canada and China.",
-    "cover": "images/nord-single-phase-motors.webp",
-    "items": [
+    "key": "motors",
+    "title": "Motors",
+    "subcategories": [
       {
-        "name": "Nord Single Phase Motor",
-        "img": "images/nord-single-phase-motors.webp",
-        "alt": "Nord Single Phase Motor",
-        "specs": [
-          [
-            "Power",
-            "45kW"
-          ],
-          [
-            "Speed",
-            "750RPM"
-          ],
-          [
-            "No Of Poles",
-            "2"
-          ],
-          [
-            "Voltage",
-            "220V"
-          ],
-          [
-            "Frequency",
-            "50Hz"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ]
-        ]
-      }
-    ]
-  },
-  {
-    "key": "asynchronous-electric-motor",
-    "title": "Asynchronous Electric Motor",
-    "blurb": "This energy-efficient universal motor from Nord drive systems expands the portfolio for major markets worldwide, such as Europe, the USA, Canada and China.",
-    "cover": "images/standard-motors-asynchronous-motors-1.webp",
-    "items": [
-      {
-        "name": "Nord Standard Asynchronous Motor",
-        "img": "images/standard-motors-asynchronous-motors-1.webp",
-        "alt": "Nord Standard Asynchronous Motor",
-        "specs": [
-          [
-            "Power",
-            "45kW"
-          ],
-          [
-            "Speed",
-            "1400RPM"
-          ],
-          [
-            "Motor Voltage",
-            "415V"
-          ],
-          [
-            "No Of Phase",
-            "Three Phase"
-          ],
-          [
-            "Type",
-            "Hight Voltage"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "IP Rating",
-            "IP66"
-          ],
-          [
-            "Efficiency Class",
-            "IE3"
-          ]
-        ]
-      },
-      {
-        "name": "Nord Standard Asynchronous Motor",
-        "img": "images/nord-single-phase-motors.webp",
-        "alt": "Nord Standard Asynchronous Motor",
-        "specs": [
-          [
-            "Power",
-            "45kW"
-          ],
-          [
-            "No Of Phase",
-            "Single Phase"
-          ],
-          [
-            "No Of Poles",
-            "2"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Country of Origin",
-            "India"
-          ]
-        ]
-      }
-    ]
-  },
-  {
-    "key": "synchronous-motors",
-    "title": "Synchronous Motors",
-    "blurb": "Nord's latest generation of IE5+ synchronous motors is built in-house and designed for intralogistics as well as the food and beverage industry.",
-    "cover": "images/nord-tefc-synchronous-motor.webp",
-    "items": [
-      {
-        "name": "Nord Standard Asynchronous Motor",
-        "img": "images/nord-tefc-synchronous-motor.webp",
-        "alt": "Synchronous Motors",
-        "specs": [
-          [
-            "Power",
-            "4kW"
-          ],
-          [
-            "Horsepower",
-            "2HP"
-          ],
-          [
-            "Speed",
-            "2800 rpm"
-          ],
-          [
-            "No Of Phase",
-            "Three Phase"
-          ],
-          [
-            "Voltage",
-            "415V"
-          ],
-          [
-            "Frequency",
-            "60Hz"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "synchronous"
-          ],
-          [
-            "No Of Poles",
-            "4"
-          ]
+        "key": "asynchronous-motors",
+        "title": "Asynchronous Motors",
+        "products": [
+          {
+            "slug": "universal-motor",
+            "name": "UNIVERSAL motor",
+            "img": "images/products/universal-motor.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 45 kW"
+              ],
+              [
+                "Protection",
+                "IP66"
+              ],
+              [
+                "Efficiency",
+                "IE3"
+              ]
+            ],
+            "features": [
+              "Worldwide approvals and acceptances"
+            ]
+          },
+          {
+            "slug": "standard-asynchronous-motors",
+            "name": "Standard asynchronous motors",
+            "img": "images/products/standard-asynchronous-motors.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 55 kW"
+              ],
+              [
+                "Efficiency",
+                "IE1 – IE4"
+              ]
+            ],
+            "features": [
+              "Protection class: freely selectable and therefore individually adaptable",
+              "Worldwide approvals and acceptances",
+              "Flexibly adjustable thanks to various motor options"
+            ]
+          },
+          {
+            "slug": "ie3-smooth-motors",
+            "name": "IE3 smooth motors",
+            "img": "images/products/ie3-smooth-motors.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 2.2 kW"
+              ],
+              [
+                "Protection",
+                "IP66"
+              ],
+              [
+                "Efficiency",
+                "IE3"
+              ]
+            ],
+            "features": [
+              "Worldwide approvals and acceptances",
+              "Hygienic and wash-down-capable design, available with NXD tupH® for food-safe surface protection"
+            ]
+          },
+          {
+            "slug": "single-phase-motor",
+            "name": "Single-phase motor",
+            "img": "images/products/single-phase-motor.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 1.5 kW"
+              ]
+            ],
+            "features": [
+              "With all relevant approvals",
+              "Lower starting torque with the same power and frame size",
+              "Equipped with starting and operating capacitors"
+            ]
+          },
+          {
+            "slug": "switchable-pole-motors",
+            "name": "Switchable pole motors",
+            "img": "images/products/switchable-pole-motors.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 17 kW"
+              ]
+            ],
+            "features": [
+              "Worldwide approvals and acceptances",
+              "2 nominal speeds for individual application"
+            ]
+          }
         ]
       },
       {
-        "name": "Nord Standard Asynchronous Motor",
-        "img": "images/nord-tefc-synchronous-motor.webp",
-        "alt": "Synchronous Motors",
-        "specs": [
-          [
-            "Power",
-            "4kW"
-          ],
-          [
-            "Horsepower",
-            "2HP"
-          ],
-          [
-            "Speed",
-            "750 rpm"
-          ],
-          [
-            "No Of Phase",
-            "Single Phase"
-          ],
-          [
-            "Voltage",
-            "220V"
-          ],
-          [
-            "Frequency",
-            "50Hz"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "synchronous"
-          ],
-          [
-            "No Of Poles",
-            "4"
-          ]
-        ]
-      }
-    ]
-  },
-  {
-    "key": "explosion-proof-motor",
-    "title": "Explosion Proof Motors",
-    "blurb": "Nord's gas explosion-protected motors are manufactured at its own facilities and have been delivered to all major markets around the world since 2003.",
-    "cover": "images/nord-gas-explosion-protected-motor.webp",
-    "items": [
-      {
-        "name": "Nord Gas Explosion Protected Motor",
-        "img": "images/nord-dust-explosion-protected-motor2.webp",
-        "alt": "Nord Gas Explosion Protected Motor",
-        "specs": [
-          [
-            "Power",
-            "22kW"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Voltage",
-            "415V"
-          ],
-          [
-            "Frequency",
-            "50Hz"
-          ],
-          [
-            "Product Type",
-            "Gas Explosion Protected Motor"
-          ]
+        "key": "synchronous-motors",
+        "title": "Synchronous Motors",
+        "products": [
+          {
+            "slug": "ie5-plus-synchronous-motor-tefc",
+            "name": "IE5+ synchronous Motor (TEFC)",
+            "img": "images/products/ie5-plus-synchronous-motor-tefc.webp",
+            "specs": [
+              [
+                "Power",
+                "0.5 – 11 kW"
+              ]
+            ],
+            "features": [
+              "Worldwide approvals and acceptances",
+              "Compact design",
+              "Constant high efficiency over the entire adjustment range"
+            ]
+          },
+          {
+            "slug": "ie5-plus-synchronous-motor-tenv",
+            "name": "IE5+ synchronous motor (TENV)",
+            "img": "images/products/ie5-plus-synchronous-motor-tenv.webp",
+            "specs": [
+              [
+                "Power",
+                "0.35 – 2.2 kW"
+              ],
+              [
+                "Protection",
+                "IP69K (optional)"
+              ]
+            ],
+            "features": [
+              "Worldwide approvals and acceptances",
+              "Compact and hygienic design, available with NXD tupH® for food-safe surface protection",
+              "Constant high efficiency over the entire adjustment range"
+            ]
+          },
+          {
+            "slug": "ie4-synchronous-motors",
+            "name": "IE4 synchronous motors",
+            "img": "images/products/ie4-synchronous-motors.webp",
+            "specs": [
+              [
+                "Power",
+                "1.1 – 5.5 kW"
+              ],
+              [
+                "Efficiency",
+                "IE4"
+              ]
+            ],
+            "features": [
+              "Worldwide approvals and acceptances",
+              "Constant high efficiency over the entire adjustment range"
+            ]
+          }
         ]
       },
       {
-        "name": "Nord Dust Explosion Protected Motor",
-        "img": "images/nord-dust-explosion-protected-motor2.webp",
-        "alt": "Nord Dust Explosion Protected Motor",
-        "specs": [
-          [
-            "Power",
-            "22kW"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Voltage",
-            "415V"
-          ],
-          [
-            "Frequency",
-            "50Hz"
-          ],
-          [
-            "Product Type",
-            "Dust Explosion Protected Motor"
-          ]
+        "key": "explosion-protected-motors",
+        "title": "Explosion-protected Motors",
+        "products": [
+          {
+            "slug": "gas-explosion-protection",
+            "name": "Gas explosion protection",
+            "img": "images/products/gas-explosion-protection.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 17.5 kW"
+              ],
+              [
+                "Efficiency",
+                "IE2, IE3"
+              ]
+            ],
+            "features": [
+              "Approved according to ATEX and HazLoc",
+              "Ignition protection types \"Increased safety\" (e), \"Pressure-resistant encapsulation\" (d/de), \"Non-sparking design\""
+            ]
+          },
+          {
+            "slug": "dust-explosion-protection",
+            "name": "Dust explosion protection",
+            "img": "images/products/dust-explosion-protection.webp",
+            "specs": [
+              [
+                "Power",
+                "0.12 – 55 kW"
+              ],
+              [
+                "Efficiency",
+                "IE2, IE3"
+              ]
+            ],
+            "features": [
+              "Approved according to ATEX and HazLoc",
+              "Ignition protection type \"Protection by enclosure\" (Ex t)"
+            ]
+          }
         ]
       }
-    ]
+    ],
+    "blurb": "Asynchronous, synchronous and explosion-protected motors, from 0.12 kW up to 55 kW."
   },
   {
-    "key": "variable-frequency-drive-inverter",
-    "title": "Variable Frequency Drive & Inverter",
-    "blurb": "The Nordac pro is a variable frequency drive and inverter for every kind of drive application. Even the basic SK 500P version delivers excellent versatility.",
-    "cover": "images/nord-pro-sk500e-vfd-inverter.webp",
-    "items": [
+    "key": "industrial-gear-units",
+    "title": "Industrial Gear Units",
+    "subcategories": [
       {
-        "name": "Nord Pro SK500E VFD Inverter",
-        "img": "images/nord-pro-sk500e-vfd-inverter.webp",
-        "alt": "Nord Pro SK500E VFD Inverter",
-        "specs": [
-          [
-            "Power",
-            "160kW"
-          ],
-          [
-            "Usage",
-            "For Industrial Machinery"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "SK500E"
-          ],
-          [
-            "Protection Class",
-            "IP20"
-          ],
-          [
-            "Voltage",
-            "480V"
-          ]
+        "key": "right-angle-gear-units",
+        "title": "Right-Angle Gear Units",
+        "products": [
+          {
+            "slug": "maxxdrive-xc-right-angle-gear-units",
+            "name": "MAXXDRIVE® XC Right-Angle Gear Units",
+            "img": "images/products/maxxdrive-xc-right-angle-gear-units.webp",
+            "specs": [
+              [
+                "Stages",
+                "3- and 4-stage"
+              ]
+            ],
+            "features": [
+              "High strength precision-made one-piece housing",
+              "Modular and flexible design for optimum adaptation to your application",
+              "Low running noise"
+            ]
+          },
+          {
+            "slug": "maxxdrive-xt-right-angle-gear-units",
+            "name": "MAXXDRIVE® XT Right-Angle Gear Units",
+            "img": "images/products/maxxdrive-xt-right-angle-gear-units.webp",
+            "specs": [
+              [
+                "Stages",
+                "2-stage"
+              ]
+            ],
+            "features": [
+              "High strength precision-made one-piece housing",
+              "Optimised housing geometry and airflow to achieve maximum thermal limit powers with axial fan",
+              "Low running noise"
+            ]
+          },
+          {
+            "slug": "maxxdrive-xj-right-angle-gear-units",
+            "name": "MAXXDRIVE® XJ Right-Angle Gear Units",
+            "img": "images/products/maxxdrive-xj-right-angle-gear-units.webp",
+            "specs": [
+              [
+                "Stages",
+                "3-stage"
+              ]
+            ],
+            "features": [
+              "Housing with extended centre distance",
+              "“J” arrangement of the shafts",
+              "Ideal for travelling drives",
+              "Housing optimised for downward radial loads"
+            ]
+          }
         ]
       },
       {
-        "name": "Nordac Pro SK 500P VFD",
-        "img": "images/nordac-pro-vfd.webp",
-        "alt": "Nordac Pro SK 500P VFD",
-        "specs": [
-          [
-            "Power Rating",
-            "0.33 kW 30 HP"
-          ],
-          [
-            "Input Voltage",
-            "415V"
-          ],
-          [
-            "Input Phase",
-            "3 Phase"
-          ],
-          [
-            "Brand",
-            "Nord"
-          ],
-          [
-            "Model",
-            "SK 500P"
-          ],
-          [
-            "Input Frequency",
-            "50 Hz"
-          ],
-          [
-            "Protection Class",
-            "IP20"
-          ]
+        "key": "parallel-gear-units",
+        "title": "Parallel Gear Units",
+        "products": [
+          {
+            "slug": "maxxdrive-xc-parallel-gear-unit",
+            "name": "MAXXDRIVE® XC parallel gear unit",
+            "img": "images/products/maxxdrive-xc-parallel-gear-unit.webp",
+            "specs": [
+              [
+                "Power",
+                "1.5 – 6,000 kW"
+              ],
+              [
+                "Torque",
+                "15,000 – 282,000 Nm"
+              ]
+            ],
+            "features": [
+              "XC means eXtra Compact",
+              "Low-noise operation"
+            ]
+          },
+          {
+            "slug": "maxxdrive-xd-parallel-gear-unit",
+            "name": "MAXXDRIVE® XD parallel gear unit",
+            "img": "images/products/maxxdrive-xd-parallel-gear-unit.webp",
+            "specs": [
+              [
+                "Power",
+                "2.5 – 2,300 kW"
+              ],
+              [
+                "Torque",
+                "15,000 – 282,000 Nm"
+              ]
+            ],
+            "features": [
+              "XD means eXtended centre Distance",
+              "Ideal for hoist units",
+              "Large centre distance"
+            ]
+          }
         ]
       }
-    ]
+    ],
+    "blurb": "Right-angle and parallel gear units for high-power drives, up to 6,000 kW and 282,000 Nm."
   }
 ];

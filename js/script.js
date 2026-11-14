@@ -1,5 +1,5 @@
 // Evergreen TechDrive - site behaviour
-// theme toggle, sheet-index rail, product catalogue explorer, quote viewer,
+// theme toggle, sheet-index rail, product catalogue menu + datasheet, quote viewer,
 // back-to-top, enquiry form (Google Forms bridge), WhatsApp button.
 
 (function () {
@@ -12,7 +12,7 @@
     });
   }
 
-  // ---------- theme toggle (paper / blueprint) ----------
+  // ---------- theme toggle (light / dark) ----------
   function setupTheme() {
     var root = document.documentElement;
     var btns = qsa('.theme-toggle');
@@ -22,7 +22,7 @@
       var dark = root.getAttribute('data-theme') === 'dark';
       btns.forEach(function (b) {
         b.setAttribute('aria-pressed', dark ? 'true' : 'false');
-        b.setAttribute('aria-label', dark ? 'Switch to paper mode' : 'Switch to blueprint mode');
+        b.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
       });
     }
     sync();
@@ -87,33 +87,56 @@
     if (byId.hero) mark(byId.hero);
   }
 
-  // ---------- product catalogue: tree + datasheet ----------
-  function setupExplorer() {
+  // ---------- product catalogue: menu (Category > Sub-category > Product) + datasheet ----------
+  // Everything is drawn from window.ETD_CATALOG (js/data.js).
+  // A product can be linked directly:  index.html#product/<product-slug>
+  function setupCatalog() {
     var data = window.ETD_CATALOG || [];
     var tree = qs('#tree');
     var sheet = qs('#datasheet');
     if (!tree || !sheet || !data.length) return;
 
+    // flat list of each category's products, in menu order (used for prev / next and the "n / total" counter)
+    var flat = data.map(function (c) {
+      var list = [];
+      c.subcategories.forEach(function (s) {
+        s.products.forEach(function (p) { list.push({ cat: c, sub: s, product: p }); });
+      });
+      return list;
+    });
+    var bySlug = {};
+    flat.forEach(function (list, ci) {
+      list.forEach(function (it, i) { bySlug[it.product.slug] = { c: ci, i: i }; });
+    });
+
     var ci = 0;       // category shown in the datasheet
-    var mi = 0;       // model shown in the datasheet
-    var openC = 0;    // category expanded in the tree
+    var pi = 0;       // position of the product within that category
+    var openC = 0;    // category expanded in the menu
+
+    function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
 
     tree.innerHTML = data.map(function (c, i) {
-      var n = c.items.length;
+      var n = flat[i].length;
       return '<div class="cat" data-c="' + i + '">' +
         '<button type="button" class="cat-btn" data-c="' + i + '" aria-expanded="false" aria-controls="models-' + i + '">' +
           '<span class="n">' + pad(i + 1) + '</span>' +
           '<span class="name">' + esc(c.title) + '</span>' +
-          '<span class="count">' + n + (n === 1 ? ' model' : ' models') + '</span>' +
+          '<span class="count">' + plural(n, 'product', 'products') + '</span>' +
         '</button>' +
-        '<ul class="models" id="models-' + i + '" hidden>' +
-          c.items.map(function (m, j) {
-            return '<li><button type="button" class="model-btn" data-c="' + i + '" data-m="' + j + '">' + esc(m.name) + '</button></li>';
+        '<div class="models" id="models-' + i + '" hidden>' +
+          c.subcategories.map(function (s) {
+            return '<div class="sub" role="group" aria-label="' + esc(s.title) + '">' +
+              '<p class="sub-label"><span>' + esc(s.title) + '</span><span>' + s.products.length + '</span></p>' +
+              '<ul>' + s.products.map(function (p) {
+                return '<li><button type="button" class="model-btn" data-slug="' + esc(p.slug) + '">' + esc(p.name) + '</button></li>';
+              }).join('') + '</ul>' +
+            '</div>';
           }).join('') +
-        '</ul></div>';
+        '</div></div>';
     }).join('');
 
     function paintTree() {
+      var cur = flat[ci][pi].product.slug;
       qsa('.cat', tree).forEach(function (el, i) {
         var open = i === openC;
         el.classList.toggle('is-open', open);
@@ -121,37 +144,41 @@
         qs('.models', el).hidden = !open;
       });
       qsa('.model-btn', tree).forEach(function (b) {
-        var on = +b.dataset.c === ci && +b.dataset.m === mi;
-        if (on) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+        if (b.dataset.slug === cur) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
       });
     }
 
     function paintSheet() {
-      var c = data[ci];
-      var m = c.items[mi];
-      var n = c.items.length;
+      var it = flat[ci][pi];
+      var c = it.cat, s = it.sub, p = it.product;
+      var n = flat[ci].length;
       sheet.innerHTML =
-        '<div class="ds-top mono-label"><span>Datasheet &middot; ' + esc(c.title) + '</span><span>' + pad(mi + 1) + ' / ' + pad(n) + '</span></div>' +
-        '<figure class="ds-figure"><img src="' + esc(m.img) + '" alt="' + esc(m.alt || m.name) + '"></figure>' +
-        '<h3 class="ds-model">' + esc(m.name) + '</h3>' +
-        '<dl class="specs">' + m.specs.map(function (r) {
+        '<div class="ds-top mono-label"><span>' + esc(c.title) + ' &rsaquo; ' + esc(s.title) + '</span><span>' + pad(pi + 1) + ' / ' + pad(n) + '</span></div>' +
+        '<figure class="ds-figure"><img src="' + esc(p.img) + '" alt="' + esc(p.name) + '" width="1920" height="1152"></figure>' +
+        '<h3 class="ds-model">' + esc(p.name) + '</h3>' +
+        (p.specs.length ? '<h4 class="ds-h mono-label">Specifications</h4><dl class="specs">' + p.specs.map(function (r) {
           return '<div class="spec"><dt>' + esc(r[0]) + '</dt><dd>' + esc(r[1]) + '</dd></div>';
-        }).join('') + '</dl>' +
+        }).join('') + '</dl>' : '') +
+        (p.features.length ? '<h4 class="ds-h mono-label">Key features</h4><ul class="feats">' + p.features.map(function (f) {
+          return '<li>' + esc(f) + '</li>';
+        }).join('') + '</ul>' : '') +
         '<div class="ds-actions">' +
-          '<button type="button" class="btn" data-enquire>Enquire about this model <span aria-hidden="true">&rarr;</span></button>' +
+          '<button type="button" class="btn" data-enquire>Enquire about this product <span aria-hidden="true">&rarr;</span></button>' +
           (n > 1 ?
             '<div class="ds-step">' +
-              '<button type="button" class="round-btn" data-step="-1" aria-label="Previous model">&larr;</button>' +
-              '<button type="button" class="round-btn" data-step="1" aria-label="Next model">&rarr;</button>' +
+              '<button type="button" class="round-btn" data-step="-1" aria-label="Previous product">&larr;</button>' +
+              '<button type="button" class="round-btn" data-step="1" aria-label="Next product">&rarr;</button>' +
             '</div>' : '') +
-        '</div>' +
-        '<div class="ds-note"><p class="mono-label">About this range</p><p>' + esc(c.blurb) + '</p></div>';
+        '</div>';
     }
 
-    function select(c, m, scroll) {
-      ci = c; mi = m; openC = c;
+    function select(c, i, scroll, updateHash) {
+      ci = c; pi = i; openC = c;
       paintTree();
       paintSheet();
+      if (updateHash !== false) {
+        try { history.replaceState(null, '', '#product/' + flat[c][i].product.slug); } catch (e) {}
+      }
       if (scroll && window.matchMedia('(max-width: 899px)').matches) {
         sheet.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
@@ -159,11 +186,15 @@
 
     tree.addEventListener('click', function (e) {
       var mb = e.target.closest('.model-btn');
-      if (mb) { select(+mb.dataset.c, +mb.dataset.m, true); return; }
+      if (mb) {
+        var at = bySlug[mb.dataset.slug];
+        select(at.c, at.i, true);
+        return;
+      }
       var cb = e.target.closest('.cat-btn');
       if (!cb) return;
       var i = +cb.dataset.c;
-      if (i === ci) {                 // same category: just fold / unfold its models
+      if (i === ci) {                 // same category: just fold / unfold its products
         openC = openC === i ? -1 : i;
         paintTree();
       } else {
@@ -174,21 +205,21 @@
     sheet.addEventListener('click', function (e) {
       var step = e.target.closest('[data-step]');
       if (step) {
-        var n = data[ci].items.length;
-        select(ci, (mi + (+step.dataset.step) + n) % n, false);
+        var n = flat[ci].length;
+        select(ci, (pi + (+step.dataset.step) + n) % n, false);
         var again = qs('[data-step="' + step.dataset.step + '"]', sheet);
         if (again) again.focus();
         return;
       }
-      if (e.target.closest('[data-enquire]')) enquire(data[ci], data[ci].items[mi]);
+      if (e.target.closest('[data-enquire]')) enquire(flat[ci][pi]);
     });
 
-    // put the chosen model into the contact form and jump to it
-    function enquire(c, m) {
+    // put the chosen product into the contact form and jump to it
+    function enquire(it) {
       var msg = qs('#message-field');
       var contact = qs('#contact');
       if (msg) {
-        var line = 'Enquiry about: ' + m.name + ' (' + c.title + ')\nQuantity / application: ';
+        var line = 'Enquiry about: ' + it.product.name + ' (' + it.cat.title + ' > ' + it.sub.title + ')\nQuantity / application: ';
         if (!msg.value.trim() || msg.dataset.auto === '1') {
           msg.value = line;
           msg.dataset.auto = '1';
@@ -208,7 +239,25 @@
     var msgField = qs('#message-field');
     if (msgField) msgField.addEventListener('input', function () { msgField.dataset.auto = ''; });
 
-    select(0, 0, false);
+    // a shared link (#product/<slug>) opens straight onto that product
+    function fromHash() {
+      var m = (location.hash || '').match(/^#product\/([^/]+)$/);
+      return m && bySlug[m[1]] ? bySlug[m[1]] : null;
+    }
+    window.addEventListener('hashchange', function () {
+      var at = fromHash();
+      if (at) select(at.c, at.i, false, false);
+    });
+
+    var first = fromHash();
+    if (first) {
+      select(first.c, first.i, false, false);
+      window.addEventListener('load', function () { qs('#products').scrollIntoView(); }, { once: true });
+    } else {
+      select(0, 0, false, false);   // first product is selected...
+      openC = -1;                   // ...but the menu starts folded
+      paintTree();
+    }
   }
 
   // ---------- customer quotes: automatic, one at a time ----------
@@ -312,7 +361,7 @@
   function init() {
     setupTheme();
     setupRail();
-    setupExplorer();
+    setupCatalog();
     setupQuotes();
     setupMobileValidation();
     setupQuoteLinks();
@@ -333,7 +382,7 @@
 
   // Replace with your phone number here, in international format without + or spaces
   // Example: 919999999999
-  const phoneNumber = '919003790287';
+  const phoneNumber = '919092097887';
 
   whatsappFloat.addEventListener('click', function (e) {
     e.preventDefault();
