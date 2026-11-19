@@ -358,7 +358,37 @@
     update();
   }
 
+  // ---------- section scroll offset ----------
+  // Measures the sticky header (mobile top bar, or the rail acting as the desktop header) and uses
+  // its real height as scroll-padding-top, so a jump to a section lands the section's top edge right
+  // under the header with none of the previous section showing.
+  function setupScrollOffset() {
+    var root = document.documentElement;
+    var topbar = qs('.topbar');
+    var rail = qs('.rail');
+
+    function header() {
+      if (topbar && getComputedStyle(topbar).display !== 'none') return topbar;
+      return rail;
+    }
+    function apply() {
+      var h = header();
+      if (!h) return;
+      var px = Math.max(0, Math.round(h.getBoundingClientRect().height) - 1);   // -1px: no hairline gap
+      root.style.scrollPaddingTop = px + 'px';
+    }
+    apply();
+    window.addEventListener('resize', apply);
+    window.addEventListener('load', apply);
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(apply);
+      if (topbar) ro.observe(topbar);
+      if (rail) ro.observe(rail);
+    }
+  }
+
   function init() {
+    setupScrollOffset();
     setupTheme();
     setupRail();
     setupCatalog();

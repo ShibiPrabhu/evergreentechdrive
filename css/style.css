@@ -1108,7 +1108,7 @@ html:not([data-theme="dark"]) #back-to-top:hover { color: #fff; }
 /* ---------- Wide screens: top navigation bar ---------- */
 
 @media (min-width: 1100px) {
-  html { scroll-padding-top: 96px; }
+  html { scroll-padding-top: 72px; }   /* fallback: script.js sets the exact header height */
 
   .topbar { display: none; }
   .menu-toggle { display: none; }
@@ -1182,7 +1182,7 @@ html:not([data-theme="dark"]) #back-to-top:hover { color: #fff; }
 @media (max-width: 1099px) {
   .rail-logo { display: none; }
   .rail-inner { padding-top: 40px; }
-  html { scroll-padding-top: calc(var(--topbar-h) + 12px); }
+  html { scroll-padding-top: calc(var(--topbar-h) - 1px); }
   .rail-inner { max-width: 560px; }
   .about-grid,
   .contact-grid { grid-template-columns: 1fr; }
