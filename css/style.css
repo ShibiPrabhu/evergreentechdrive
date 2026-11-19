@@ -413,8 +413,16 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 /* ---------- Hero ---------- */
 
-.hero-eyebrow { margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
-.hero-eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--green); }
+.hero-eyebrow {
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: clamp(1rem, 1.5vw, 1.45rem);   /* larger, bold and bright: this is the first line a visitor reads */
+  font-weight: 600;
+  color: var(--ink);
+}
+.hero-eyebrow::before { content: ""; flex: 0 0 auto; width: 40px; height: 3px; background: var(--green); }
 
 /* NORD logo beside the headline.
    Tablet / mobile: sits in the gap to the right of the last two headline lines.
@@ -519,7 +527,7 @@ html[data-theme="dark"] .hero-nord img {
 
 .databar {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   margin-top: clamp(32px, 5vw, 56px);
   border: 1.5px solid var(--rule-strong);
   background: var(--panel);
@@ -1189,9 +1197,9 @@ html:not([data-theme="dark"]) #back-to-top:hover { color: #fff; }
   .tree { border-right: 0; border-bottom: 1.5px solid var(--rule-strong); }
   .models { max-height: 340px; }
   .hero-row { grid-template-columns: 1fr; }
-  .databar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .databar > div:nth-child(3) { border-left: 0; }
-  .databar > div:nth-child(n+3) { border-top: 1px solid var(--rule-strong); }
+  .databar { grid-template-columns: minmax(0, 1fr); }
+  .databar > div { border-left: 0; }
+  .databar > div:nth-child(n+2) { border-top: 1px solid var(--rule-strong); }
   .titleblock-foot { grid-template-columns: 1fr; }
   .tb-cell { border-left: 0; border-top: 1px solid var(--rule-strong); padding-block: 16px; }
   .tb-cell:first-child { border-top: 0; }
@@ -1210,4 +1218,33 @@ html:not([data-theme="dark"]) #back-to-top:hover { color: #fff; }
   .ds-actions .btn { max-width: none; width: 100%; }
   #whatsapp-float { right: 14px; bottom: 82px; width: 54px; height: 54px; }
   #back-to-top { right: 14px; bottom: 14px; width: 54px; height: 54px; }
+}
+
+
+/* ---------- Partnership band (Evergreen / NORD lockup, sits under the hero highlights) ---------- */
+
+.partner-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
+  margin-top: clamp(28px, 4vw, 48px);
+  padding: clamp(20px, 3.4vw, 36px);
+  border: 1.5px solid var(--rule-strong);
+  background:
+    repeating-linear-gradient(135deg, transparent 0 9px, var(--rule) 9px 10px),
+    var(--panel);
+}
+.partner-copy { padding: clamp(10px, 1.6vw, 20px); background: var(--panel); }
+.partner-copy h2 { margin: 12px 0 10px; font-size: clamp(2rem, 3vw + 0.6rem, 3.2rem); }
+.partner-copy p:last-child { margin: 0; max-width: 32rem; color: var(--ink-soft); }
+.partner-plate {
+  padding: clamp(14px, 2.4vw, 26px);
+  background: #FFFFFF;                       /* always white so both logos keep their true colours in dark mode */
+  border: 1.5px solid var(--rule-strong);
+}
+.partner-plate img { display: block; width: 100%; height: auto; }
+
+@media (max-width: 900px) {
+  .partner-band { grid-template-columns: minmax(0, 1fr); }
 }
