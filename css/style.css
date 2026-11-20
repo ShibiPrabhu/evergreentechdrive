@@ -425,8 +425,8 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 .hero-eyebrow::before { content: ""; flex: 0 0 auto; width: 40px; height: 3px; background: var(--green); }
 
 /* NORD logo beside the headline.
-   Tablet / mobile: sits in the gap to the right of the last two headline lines.
-   Laptop / desktop (1100px+): sits in the empty column to the right of the headline. */
+   Up to 799px: stacked under the headline, centred.
+   800px and wider (tablet, laptop, desktop): sits in the empty column to the right of the headline. */
 .hero-top {
   --hero-h1: clamp(2.75rem, 7.2vw + 0.6rem, 8rem);   /* same size as the h1 */
   position: relative;
@@ -457,7 +457,7 @@ html[data-theme="dark"] .hero-nord img {
   mix-blend-mode: screen;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 800px) {   /* wide-map logo layout: tablets, narrow preview panes, laptops and desktops */
   .hero-top {
     display: grid;
     /* headline keeps its natural width; the logo takes the empty space to its right */
@@ -493,6 +493,32 @@ html[data-theme="dark"] .hero-nord img {
   .hero-nord img {
     -webkit-mask-image: radial-gradient(ellipse 62% 66% at 50% 50%, #000 58%, transparent 100%);
             mask-image: radial-gradient(ellipse 62% 66% at 50% 50%, #000 58%, transparent 100%);
+  }
+}
+
+/* Small screens (up to 799px): NORD logo stacked under the headline and centred */
+@media (max-width: 799px) {
+  /* stack the NORD logo under the headline instead of squeezing it into the gap beside the last lines.
+     It gets real size (about three quarters of the width) and is centred in the section. */
+  .hero-nord {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: min(74%, 19rem);
+    margin: clamp(10px, 3vw, 20px) auto 0;   /* centred in the section */
+  }
+}
+
+/* Tablet / narrow desktop pane (800px - 1099px): the long eyebrow line no longer decides how wide the headline column is,
+   so the logo is centred in the space that is really free beside the headline and can be bigger. */
+@media (min-width: 800px) and (max-width: 1099px) {
+  .hero-top-copy { display: contents; }
+  .hero-eyebrow { grid-column: 1 / -1; grid-row: 1; }
+  .hero-top h1 { grid-column: 1; grid-row: 2; }
+  .hero-nord { grid-column: 2; grid-row: 2; }
+  .hero-nord img {
+    top: 50%;                          /* the logo row is now only the headline lines, so no eyebrow offset */
+    height: min(170%, 112cqw);   /* mark stays inside the free column, never touching the headline */
   }
 }
 
@@ -1206,8 +1232,6 @@ html:not([data-theme="dark"]) #back-to-top:hover { color: #fff; }
 }
 
 @media (max-width: 700px) {
-  /* phones: drop the NORD logo a little so it clears the "TRANSMISSION" line */
-  .hero-nord { bottom: calc(-0.3 * var(--hero-h1)); }
   .brand-grid { grid-template-columns: 1fr; }
   .about-cols { grid-template-columns: 1fr; }
   .dims { grid-template-columns: 1fr; }
